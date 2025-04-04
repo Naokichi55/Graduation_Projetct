@@ -89,4 +89,4 @@ x認証/xシェア機能・・・Twitter API
 
 # 画面遷移図
 ***
-https://www.figma.com/design/wichPgtqOhPH0OozRxSxg4/%E7%84%A1%E9%A1%8C?node-id=0-1&m=dev&t=D7iMxa1x5ovk8WfN-1
+https://www.figma.com/design/wichPgtqOhPH0OozRxSxg4/%E5%8D%92%E6%A5%AD%E5%88%B6%E4%BD%9C?node-id=0-1&m=dev&t=2U3ODtkkqowxk9XH-1
