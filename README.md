@@ -95,3 +95,7 @@ Figma:https://www.figma.com/design/wichPgtqOhPH0OozRxSxg4/%E5%8D%92%E6%A5%AD%E5%
 ***
 URL:https://drive.google.com/file/d/1yIPULIDCogn7fZyan-cIB_15oCi8ZY0R/view?usp=sharing
 [![Image from Gyazo](https://i.gyazo.com/73d43bdb19204c22370aa3b1486b16e6.png)](https://gyazo.com/73d43bdb19204c22370aa3b1486b16e6)
+
+# Issues
+***
+URL:https://github.com/users/Naokichi55/projects/3/views/1
