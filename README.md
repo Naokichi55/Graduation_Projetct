@@ -90,3 +90,8 @@ x認証/xシェア機能・・・Twitter API
 # 画面遷移図
 ***
 Figma:https://www.figma.com/design/wichPgtqOhPH0OozRxSxg4/%E5%8D%92%E6%A5%AD%E5%88%B6%E4%BD%9C?node-id=0-1&t=2RXKYpPFmvWKV5ac-1
+***
+# ER図
+***
+URL:https://drive.google.com/file/d/1yIPULIDCogn7fZyan-cIB_15oCi8ZY0R/view?usp=sharing
+[![Image from Gyazo](https://i.gyazo.com/73d43bdb19204c22370aa3b1486b16e6.png)](https://gyazo.com/73d43bdb19204c22370aa3b1486b16e6)
