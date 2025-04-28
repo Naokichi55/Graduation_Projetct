@@ -150,6 +150,11 @@
   resolved "https://registry.yarnpkg.com/@rails/actioncable/-/actioncable-7.2.201.tgz#bfb3da01b3e2462f5a18f372c52dedd7de76037f"
   integrity sha512-wsTdWoZ5EfG5k3t7ORdyQF0ZmDEgN4aVPCanHAiNEwCROqibSZMXXmCbH7IDJUVri4FOeAVwwbPINI7HVHPKBw==
 
+daisyui@^5.0.28:
+  version "5.0.28"
+  resolved "https://registry.yarnpkg.com/daisyui/-/daisyui-5.0.28.tgz#0cc3d0003d1b536d30c3ab1a25d70f92cd9b91f7"
+  integrity sha512-H082p8Lg3c7Se9wTbjfSOOhfUbp3BnOM2+cdr3OeY5G1Ll7GYLXB9NWLHgitkTsB1pQKwHRYYchqN2YG0VVShg==
+
 esbuild@^0.25.2:
   version "0.25.2"
   resolved "https://registry.yarnpkg.com/esbuild/-/esbuild-0.25.2.tgz#55a1d9ebcb3aa2f95e8bba9e900c1a5061bc168b"
