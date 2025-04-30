@@ -6,4 +6,11 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters #ユーザー登録時に名前を登録できるように定義
     devise_parameter_sanitizer.permit(:sign_up, keys: [:user_name])
   end
-end
+
+  private
+
+  def after_sign_out_path_for(resource)
+    new_user_session_path
+  end
+end  
+
