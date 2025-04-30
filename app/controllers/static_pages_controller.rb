@@ -1,4 +1,4 @@
 class StaticPagesController < ApplicationController
-  def top
-end
+  # TOPページへの遷移になります。
+  def top; end
 end
