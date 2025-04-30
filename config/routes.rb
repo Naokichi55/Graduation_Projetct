@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "static_pages/top"
   devise_for :users
   get "rackets_post/index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -12,7 +13,9 @@ Rails.application.routes.draw do
   get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
 
   # Defines the root path route ("/")
-  root "rackets_post#index"
+  # TOPページへ遷移するように変更
+  root "static_pages#top"
+  # root "rackets_post#index"
 
   #ログイン後にtopページに遷移するように変更。
   # root to:"top#index"
