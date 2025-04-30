@@ -13,4 +13,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "rackets_post#index"
+
+  #ログイン後にtopページに遷移するように変更。
+  # root to:"top#index"
 end
