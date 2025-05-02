@@ -6,5 +6,4 @@ class RacketsController < ApplicationController
   def new
     @racket = Racket.new
   end
-
 end
