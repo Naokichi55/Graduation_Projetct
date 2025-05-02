@@ -2,7 +2,11 @@
   <% if @rackets.present? %>
     <% @rackets.each do |racket| %>
       <%= racket.product_name %>
+			<%= racket.maker_name %>
+			<%= racket.created_at %>
+			<%= link_to '編集', '#' %>
+			<%= link_to '削除', '#' %>
     <% end %>
 	<% else %>
-    <p> 投稿されたラケットはございません </p>
+    <p> 投稿がありません </p>
   <% end %>
