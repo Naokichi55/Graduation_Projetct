@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get "static_pages/top"
   devise_for :users
-  get "rackets_post/index"
+  get "rackets/index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # TOPページへ遷移するように変更
   root "static_pages#top"
-  # root "rackets_post#index"
+  # root "rackets#index"
 
   #ログイン後にtopページに遷移するように変更。
   # root to:"top#index"
