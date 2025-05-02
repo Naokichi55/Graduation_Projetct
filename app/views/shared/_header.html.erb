@@ -1,5 +1,10 @@
 <header>
+  <li>
+    <%= link_to '投稿一覧画面へ', rackets_path %>
+  </li>
   <% if user_signed_in? %>
+    <li>
+      <%= link_to '投稿画面へ', new_racket_path %>
     <li>
       <%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete} %>
     </li>
