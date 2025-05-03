@@ -5,4 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :rackets, dependent: :destroy
+
+  # emailに関するバリデーション
+  validates :email, presence: true, uniqueness: true
+  # nameに関するバリデーション
+  validates :name, presence: true, uniqueness: true, length: { maximum: 50 }
 end
