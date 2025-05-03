@@ -2,8 +2,8 @@
   <div>
     <% if @rackets.present? %>
       <% @rackets.each do |racket| %>
-      <div>
-        <%= racket.product_name %>
+      <div class = "underline">
+        <%= link_to racket.product_name, racket_path(racket) %> <!-- 名前を押すことで詳細画面へ遷移 -->
       </div>
         <%= racket.maker_name %>
       <div>
