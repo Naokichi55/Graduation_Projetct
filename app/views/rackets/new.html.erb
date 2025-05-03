@@ -16,7 +16,7 @@
   <!-- 使用ラケットのフェイスサイズ -->
   <div>
     <%= f.label 'フェイスサイズ/inch' %>
-    <%= f.number_field :face_size  %>
+    <%= f.number_field :face_size, in: 1..200 %>
   </div>
 
 	<!-- 使用ラケットのガット（縦）の種類 -->
@@ -34,13 +34,13 @@
   <!-- ガットのテンション(縦) -->
   <div>
     <%= f.label '縦ガットのテンション' %>
-    <%= f.number_field :main_string_tension %>
+    <%= f.number_field :main_string_tension, in: 1..100 %>
   </div>
 
 	<!-- ガットのテンション(横) -->
   <div>
     <%= f.label '横ガットのテンション' %>
-    <%= f.number_field :cross_string_tension %>
+    <%= f.number_field :cross_string_tension, in: 1..100 %>
   </div>
 
 	<!-- 重りの使用箇所 -->
@@ -52,7 +52,7 @@
   <!-- グリップの太さ -->
   <div>
     <%= f.label 'グリップの太さ' %>
-    <%= f.number_field :grip_size %>
+    <%= f.number_field :grip_size, in: 1..20 %>
   </div>
 
   <!-- グリップテープ -->
