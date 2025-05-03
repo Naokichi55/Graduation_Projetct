@@ -25,12 +25,6 @@
     <%= f.text_field :main_string %>
   </div>
 
-  <!-- 使用ラケットのガット（縦）の種類 -->
-  <div>
-    <%= f.label '使用ガット(横)' %>
-    <%= f.text_field :cross_string %>
-  </div>
-
   <!-- 使用ラケットのガット（横）の種類 -->
   <div>
     <%= f.label '使用ガット(横)' %>
@@ -72,6 +66,10 @@
     <% f.label 'タグ' %>
     <% f.text_area :tag %>
   </div>
+
+  <div>
+    <%= f.label 'その他' %>
+		<%= f.text_area :body %>
 
   <!-- 送信ボタンの作成 -->
 	<div>
