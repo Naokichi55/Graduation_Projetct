@@ -1,0 +1,75 @@
+<h1 class="text-2xl font-semibold ">投稿詳細画面</h1>
+  <div>
+    <label>更新日:</label>
+	  <%= @racket.created_at %>
+  </div>
+
+  <div>
+    <label>種類:</label>
+	  <%= @racket.product_name %>
+  </div>
+
+	<div>
+    <label>メーカー:</label>
+	  <%= @racket.maker_name %>
+  </div>
+
+  <div>
+	  <label>フェイスサイズ:</label>
+    <%= @racket.face_size %>
+	</div>
+
+  <!-- 使用中のガット(縦)の種類 -->
+	<div>
+    <label>使用ガット(縦):</label>
+	  <%= @racket.main_string %>
+  </div>
+
+  <!-- 使用中のガット(横)の種類 -->
+	<div>
+    <label>使用ガット(横):</label>
+	  <%= @racket.cross_string %>
+  </div>
+
+ <!-- ガットのテンション(縦）-->
+	<div>
+    <label>縦ガットのテンション:</label>
+	  <%= @racket.main_string_tension %>
+  </div>
+
+   <!-- ガットのテンション(横）-->
+	<div>
+    <label>横ガットのテンション:</label>
+	  <%= @racket.cross_string_tension %>
+  </div>
+
+  <!-- 重りの使用箇所-->
+	<div>
+    <label>重りの使用箇所:</label>
+    <%= @racket.weight_position %>
+  </div>
+
+  <!-- グリップの太さ -->
+	<div>
+    <label>グリップの太さ:</label>
+    <%= @racket.grip_size %>
+  </div>
+
+  <!-- グリップテープ -->
+	<div>
+    <label>グリップのテープ:</label>
+    <%= @racket.grip_tape %>
+  </div>
+
+  <!-- タグ機能は本リリースにて実装 -->
+  <div>
+  </div>
+
+<!-- 自由記載エリア -->
+  <div>
+    <label>その他:</label>
+    <%= @racket.body %>
+  </div>
+
+
+
