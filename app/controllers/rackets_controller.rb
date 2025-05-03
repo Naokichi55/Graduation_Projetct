@@ -10,9 +10,9 @@ class RacketsController < ApplicationController
   def create
     @racket = current_user.rackets.build(racket_params)
     if @racket.save
-      redirect_to rackets_path, success: t('defaults.flash_message.created', item: Racket.model_name.human)
+      redirect_to rackets_path, success: t("defaults.flash_message.created", item: Racket.model_name.human)
     else
-      flash.now[:danger] = t('defaults.flash_message.not_created', item: Racket.model_name.human)
+      flash.now[:danger] = t("defaults.flash_message.not_created", item: Racket.model_name.human)
       render :new, status: :unprocessable_entity
     end
   end
