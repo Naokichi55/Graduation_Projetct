@@ -11,6 +11,12 @@ class ApplicationController < ActionController::Base
 
   private
 
+  # ログイン後投稿一覧ページへ遷移するように指定
+  def after_sign_in_path_for(resource)
+    rackets_path
+  end
+
+  # ログアウト後のリダイレクト先を指定
   def after_sign_out_path_for(resource)
     new_user_session_path
   end
