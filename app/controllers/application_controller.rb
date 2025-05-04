@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
 
 
   def configure_permitted_parameters # ユーザー登録時に名前を登録できるように定義
-    devise_parameter_sanitizer.permit(:sign_up, keys: [ :user_name ])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [ :name ])
   end
 
   private
