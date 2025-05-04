@@ -13,7 +13,7 @@
         <% if user_signed_in? %> <!-- ユーザーがログインしているか確認 -->
           <% if current_user.own?(racket) %> <!-- 投稿ユーザーがログインユーザー確認 -->
             <%= link_to '編集', edit_racket_path(racket) %>
-            <%= link_to '削除', '#' %>
+            <%= link_to '削除', racket_path(racket), data: { turbo_method: :delete, turbo_confirm: '削除しますか?'} %>
           <% end %>
         <% end %>
       </div>
