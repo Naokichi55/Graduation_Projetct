@@ -46,6 +46,9 @@ group :development, :test do
 
   # binding.pryの導入
   gem "pry-byebug"
+
+  # rubocopの導入
+  gem 'rubocop', require: false
 end
 
 group :development do
