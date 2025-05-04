@@ -71,5 +71,11 @@
     <%= @racket.body %>
   </div>
 
-
-
+  <div>
+    <%if user_signed_in? %>
+      <% if current_user.own?(@racket) %>
+        <%= link_to '編集', edit_racket_path(@racket) %>
+        <%= link_to '削除', '# ' %>
+      <% end %>
+		<% end %>
+  </div>
