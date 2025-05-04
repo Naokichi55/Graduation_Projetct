@@ -11,7 +11,7 @@ class User < ApplicationRecord
   # nameに関するバリデーション
   validates :name, presence: true, uniqueness: true, length: { maximum: 50 }
 
-# 投稿者とログインユーザーが同じかを確認
+  # 投稿者とログインユーザーが同じかを確認
   def own?(object)
     id == object&.user_id
   end
