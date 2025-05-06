@@ -1,5 +1,13 @@
 <h1 class="text-2xl font-semibold ">投稿詳細画面</h1>
   <div>
+    <% if @racket.images.attached? %>
+      <% @racket.images.each do |image| %>
+        <%= image_tag image.variant(resize_to_fit: [500, 400]) %>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div>
     <label>更新日:</label>
 	  <%= @racket.created_at %>
   </div>

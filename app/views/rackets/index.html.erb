@@ -5,7 +5,7 @@
       <div>
         <% if racket.images.attached? %>
           <% racket.images.each do |image| %>
-            <%= image_tag image %>
+            <%= image_tag image.variant(resize_to_fit: [300, 200]) %>
           <% end %>
         <% end %>
       </div>
