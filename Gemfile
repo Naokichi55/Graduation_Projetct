@@ -73,3 +73,6 @@ gem "image_processing", ">= 1.2"
 
 # 本番環境のActiveStorageの保存場所とするため追加
 gem "aws-sdk-s3", require: false
+
+# ラケット投稿画像へのバリデーションのため追加
+gem "active_storage_validations"
