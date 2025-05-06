@@ -67,3 +67,6 @@ gem "tailwindcss-ruby", "3.4.17"
 
 #ログイン機能としてdeviseを使用
 gem "devise"
+
+# 画像加工のためのimage_processingを導入
+gem "image_processing", ">= 1.2"
