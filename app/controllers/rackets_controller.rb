@@ -48,6 +48,6 @@ class RacketsController < ApplicationController
 
   private
   def racket_params
-    params.require(:racket).permit(:product_name, :maker_name, :face_size, :main_string, :cross_string, :main_string_tension, :cross_string_tension,  :weight_position, :grip_size, :grip_tape, :body)
+    params.require(:racket).permit(:product_name, :maker_name, :face_size, :main_string, :cross_string, :main_string_tension, :cross_string_tension,  :weight_position, :grip_size, :grip_tape, :body,images:[])
   end
 end

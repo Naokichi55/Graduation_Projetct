@@ -1,6 +1,9 @@
 class Racket < ApplicationRecord
   belongs_to :user
 
+  # ラケット投稿機能アソシエーション
+  has_many_attached :images
+
   validates :product_name, presence: true, length: { maximum: 255 }
   validates :maker_name, presence: true, length: { maximum: 255 }
   validates :face_size, inclusion: { in: 1..200 }, allow_blank: true
