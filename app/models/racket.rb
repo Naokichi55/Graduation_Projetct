@@ -17,7 +17,7 @@ class Racket < ApplicationRecord
   validates :body, length: { maximum: 65_535 }
   # ラケット投稿画像のバリデーション
   validates :images,  content_type: { in: %w[image/jpeg image/gif image/png],
-                                      message: "画像フォーマットはjpeg,gif,pngのみ投稿できます。"},
+                                      message: " 画像フォーマットはjpeg,gif,pngのみ投稿できます。" },
                       size:         { less_than: 5.megabytes,
-                                      message: "画像の大きさは5MB以下にしてください。"}
+                                      message: " 画像の大きさは5MB以下にしてください。" }
 end

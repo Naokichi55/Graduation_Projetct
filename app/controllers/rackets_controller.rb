@@ -42,12 +42,12 @@ class RacketsController < ApplicationController
   def destroy
     racket = current_user.rackets.find(params[:id])
     racket.destroy!
-    redirect_to rackets_path, success: '投稿したマイラケ情報を削除しました。'
+    redirect_to rackets_path, success: "投稿したラケット情報を削除しました。"
   end
 
 
   private
   def racket_params
-    params.require(:racket).permit(:product_name, :maker_name, :face_size, :main_string, :cross_string, :main_string_tension, :cross_string_tension,  :weight_position, :grip_size, :grip_tape, :body,images:[])
+    params.require(:racket).permit(:product_name, :maker_name, :face_size, :main_string, :cross_string, :main_string_tension, :cross_string_tension,  :weight_position, :grip_size, :grip_tape, :body, images: [])
   end
 end
