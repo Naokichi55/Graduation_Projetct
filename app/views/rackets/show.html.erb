@@ -2,8 +2,10 @@
   <div>
     <% if @racket.images.attached? %>
       <% @racket.images.each do |image| %>
-        <%= image_tag image.variant(resize_to_fit: [500, 400]) %>
+      <%= image_tag image.variant(resize_to_fit: [500, 400]) %>
       <% end %>
+    <% else %>
+      <%= image_tag 'temporary _sample.png', width: "500", height: "400" %>
     <% end %>
   </div>
 
