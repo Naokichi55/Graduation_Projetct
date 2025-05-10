@@ -1,6 +1,7 @@
-<h1 class="text-2xl font-semibold ">投稿画面</h1>
-<%= form_with model: @racket, class: "new_racket" do |f| %>
+<h1 class="text-2xl font-semibold text-center ">投稿画面</h1>
 
+<%= form_with model: @racket, class: "new_racket" do |f| %>
+  <div class="container mx-auto">
   <!-- 使用ラケットの写真 -->
   <div>
     <%= f.label 'ラケット画像' %>
@@ -82,4 +83,7 @@
 	<div>
     <%= f.submit '投稿' %>
 	</div>
+  </div>
 <% end %>
+</div>
+
