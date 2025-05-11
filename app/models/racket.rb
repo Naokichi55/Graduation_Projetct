@@ -3,6 +3,8 @@ class Racket < ApplicationRecord
 
   # ラケット投稿機能アソシエーション
   has_many_attached :images
+  # commentテーブルとのアソシエーション
+  has_many :comments, dependent: :destroy
 
   # ラケット投稿機能のバリデーション
   validates :product_name, presence: true, length: { maximum: 255 }
