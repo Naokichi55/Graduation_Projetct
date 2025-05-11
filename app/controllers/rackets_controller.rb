@@ -20,6 +20,9 @@ class RacketsController < ApplicationController
   # 詳細ページへのアクション
   def show
     @racket = Racket.find(params[:id])
+   # コメントに関するアクション
+    @comment = Comment.new
+    @comments = @racket.comments.includes(:user).order(created_at: :desc)
   end
 
   # 投稿したラケット情報を更新するためのアクション
