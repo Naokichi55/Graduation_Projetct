@@ -9,6 +9,13 @@ class CommentsController < ApplicationController
       redirect_to racket_path(comment.racket), danger: 'コメント投稿に失敗しました'
     end
   end
+
+  def destroy
+		comment = current_user.comments.find(params[:id])
+    comment.destroy!
+    redirect_to rackets_path, success: "コメントを削除しました。"
+  end
+
   private
 
   def comment_params
