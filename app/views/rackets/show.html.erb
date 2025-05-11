@@ -84,26 +84,25 @@
     </div>
   </div>
 
-<!--  投稿編集、削除機能 -->
-  <div class= 'mt-2 text-center'>
-    <%if user_signed_in? %>
+  <!-- 投稿、削除、コメント機能はログインしていることを前提に表示する -->
+  <%if user_signed_in? %>
+    <div class= 'mt-2 text-center'>
+      <!--  投稿編集、削除機能 -->
       <% if current_user.own?(@racket) %>
         <%= link_to '編集', edit_racket_path(@racket), class: "text-2xl text-white bg-blue px-5 py-2 rounded-md " %>
         <%= link_to '削除', racket_path(@racket), data: { turbo_method: :delete, turbo_confirm: '削除しますか?'} , class: "text-2xl text-white bg-red px-5 py-2 rounded-md " %>
       <% end %>
-		<% end %>
-  </div>
+    </div>
 
-  <!-- コメント機能 -->
-  <div class="shadow-md max-w-2xl  mx-auto mt-8">
-  <!-- コメント投稿フォームへのリンク-->
-    <div>
-      <%= render 'comments/form', comment: @comment, racket:@racket %>
-    </div>
-  
+    <!-- コメント機能 -->
+    <div class="shadow-md max-w-2xl  mx-auto mt-8">
+    <!-- コメント投稿フォーム -->
+      <div>
+        <%= render 'comments/form', comment: @comment, racket:@racket %>
+      </div>
     <!-- コメント一覧画面 -->
-    <div>
-      <%= render @comments %>
+      <div>
+        <%= render @comments %>
+      </div>
     </div>
-  </div>
-  </div>
+  <% end %>
