@@ -1,4 +1,7 @@
 class RacketsController < ApplicationController
+  # 未ログインだとログイン画面への遷移するヘルパーメソッドを設定
+  before_action :authenticate_user!, only: [:edit, :new]
+
   def index
     @rackets = Racket.includes(:user)  # ラケット一覧を取得
   end

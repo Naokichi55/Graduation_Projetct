@@ -13,7 +13,7 @@ class CommentsController < ApplicationController
   def destroy
 		comment = current_user.comments.find(params[:id])
     comment.destroy!
-    redirect_to rackets_path, success: "コメントを削除しました。"
+    redirect_to racket_path(comment.racket), success: "コメントを削除しました。"
   end
 
   private
