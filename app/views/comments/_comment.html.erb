@@ -1,9 +1,7 @@
 <div>
   <!-- 本リリース時にuserのアイコンを表示できるように実装 -->
 	<div>
-    <h3>
-			<%= comment.user.name %>
-		</h3>
+		<p><%= comment.user.name %></P>
     <p><%= simple_format(comment.body)%></p>
 	</div>
   <% if current_user.own?(comment) %>
@@ -11,4 +9,5 @@
       <%= link_to"編集", "#" %>
 			<%= link_to"削除", "#" %>
 		</div>
+	<% end %>
 </div>
