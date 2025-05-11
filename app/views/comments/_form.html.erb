@@ -1,8 +1,9 @@
 <div class= "row mb-3">
   <div class="columns-lg-8 offset-lg-2">
-   <%= form_with model:comment, url:racket_comments_path(racket) do |f| %>
-	  <%= f.label: コメント %>
-    <%= f.text_area: body, class: "form-control mb-3", rows:"4" %>
-		<%= f.submit "投稿" %>
+    <%= form_with model:comment, url:racket_comments_path(racket) do |f| %>
+	    <%= f.label "コメント" %>
+      <%= f.text_area :body, class: "form-control mb-3", rows:"4" %>
+      <%= f.submit "投稿" %>
+		<% end %>
   </div>
 </div>
