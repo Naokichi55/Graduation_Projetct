@@ -1,13 +1,16 @@
 <div>
   <!-- 本リリース時にuserのアイコンを表示できるように実装 -->
-	<div>
-		<p><%= comment.user.name %></P>
-    <p><%= simple_format(comment.body)%></p>
-	</div>
-  <% if current_user.own?(comment) %>
-	  <div>
-      <!-- 編集機能は本リリース時に実装" -->
-			<%= link_to"削除", comment_path(comment), data: { turbo_method: :delete, turbo_confirm: '削除しますか？' } %>
+	<div class="bg-orange-700  text-white my-2 rounded-md ">
+		<div>
+		  <%= comment.user.name %>
 		</div>
-	<% end %>
+		  <%= simple_format(comment.body)%>
+    <% if current_user.own?(comment) %>
+	    
+        <!-- 編集機能は本リリース時に実装" -->
+			<div class="text-end">
+			  <%= link_to"削除", comment_path(comment), class: "text-white bg-red rounded-md pt-2 pb-1 pl-2 pr-1" ,data: { turbo_method: :delete, turbo_confirm: '削除しますか？' } %>
+		  </div>
+	   <% end %>
+	</div>
 </div>

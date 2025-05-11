@@ -94,12 +94,16 @@
 		<% end %>
   </div>
 
-<!-- コメント投稿フォームへのリンク-->
-  <div>
-    <%= render 'form', comment: @comment, racket:@racket %>
+  <!-- コメント機能 -->
+  <div class="shadow-md max-w-2xl  mx-auto mt-8">
+  <!-- コメント投稿フォームへのリンク-->
+    <div>
+      <%= render 'comments/form', comment: @comment, racket:@racket %>
+    </div>
+  
+    <!-- コメント一覧画面 -->
+    <div>
+      <%= render @comments %>
+    </div>
   </div>
-
-  <!-- コメント一覧画面 -->
-  <div>
-    <%= render @comments %>
   </div>
