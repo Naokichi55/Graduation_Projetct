@@ -1,6 +1,6 @@
 class RacketsController < ApplicationController
   # 未ログインだとログイン画面への遷移するヘルパーメソッドを設定
-  before_action :authenticate_user!, only: [:edit, :new]
+  before_action :authenticate_user!, only: %i[edit new]
 
   def index
     @rackets = Racket.includes(:user)  # ラケット一覧を取得
@@ -23,7 +23,7 @@ class RacketsController < ApplicationController
   # 詳細ページへのアクション
   def show
     @racket = Racket.find(params[:id])
-   # コメントに関するアクション
+    # コメントに関するアクション
     @comment = Comment.new
     @comments = @racket.comments.includes(:user).order(created_at: :desc)
   end
