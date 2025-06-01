@@ -28,6 +28,6 @@ module Myapp
     # 日本時間設定
     config.time_zone = 'Tokyo'
     # i18n 日本語対応
-    config.i18n.defaults_locale = :ja
+    config.i18n.default_locale = :ja
   end
 end
