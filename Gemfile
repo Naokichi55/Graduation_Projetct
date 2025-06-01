@@ -76,3 +76,6 @@ gem "aws-sdk-s3", require: false
 
 # ラケット投稿画像へのバリデーションのため追加
 gem "active_storage_validations"
+
+#i18nの導入
+gem 'rails-i18n', '~>7.0.0'
