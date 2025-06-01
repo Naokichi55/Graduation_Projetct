@@ -78,4 +78,4 @@ gem "aws-sdk-s3", require: false
 gem "active_storage_validations"
 
 #i18nの導入
-gem 'rails-i18n','~>7.0.0'
+gem 'rails-i18n', '~>7.0.0'
