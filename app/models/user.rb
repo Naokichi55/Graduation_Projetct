@@ -7,6 +7,10 @@ class User < ApplicationRecord
   has_many :rackets, dependent: :destroy
   # commentテーブルとのアソシエーションを記載
   has_many :comments, dependent: :destroy
+
+  #profileテーブルとのアソシエーションを記載
+  has_one :profile, dependent: :destroy
+
   # emailに関するバリデーション
   validates :email, presence: true, uniqueness: true
   # nameに関するバリデーション
