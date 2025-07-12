@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_05_11_050158) do
+ActiveRecord::Schema[7.2].define(version: 2025_07_11_155314) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -52,6 +52,20 @@ ActiveRecord::Schema[7.2].define(version: 2025_05_11_050158) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "profiles", force: :cascade do |t|
+    t.string "racket_model"
+    t.string "history"
+    t.string "play_style"
+    t.string "level"
+    t.integer "generation"
+    t.integer "gender"
+    t.text "body"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_profiles_on_user_id", unique: true
+  end
+
   create_table "rackets", force: :cascade do |t|
     t.string "product_name", null: false
     t.string "maker_name", null: false
@@ -87,5 +101,6 @@ ActiveRecord::Schema[7.2].define(version: 2025_05_11_050158) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "comments", "rackets"
   add_foreign_key "comments", "users"
+  add_foreign_key "profiles", "users"
   add_foreign_key "rackets", "users"
 end
