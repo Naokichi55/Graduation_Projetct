@@ -3,13 +3,14 @@ class ProfilesController < ApplicationController
 		@profile = Profile.new
 	end
 
- def create
-	@profile = current_user.profiles.build(profile_params)
-	if @profile.save
-		redirect_to profile_path, status: :unprocessable_entity
-	else
-    flash.now[:danger] = "プロフィール作成に失敗しました"
-    render :new, status: :unprocessable_entity
+  def create
+	  @profile = current_user.profiles.build(profile_params)
+	  if @profile.save
+		  redirect_to profile_path
+	  else
+      flash.now[:danger] = "プロフィール作成に失敗しました"
+      render :new, status: :unprocessable_entity
+    end
   end
 
   private

@@ -1,0 +1,27 @@
+<div>
+ <!-- 動的に名前を表示させる `use.name`等を実装必要　-->
+</div>
+  <%= form_with model: @profile, class: 'new-profile' do |f| %>
+    <div class = "container mx-auto grid grid-colors-2 grep-2 "%>
+      <div class = 'grid-colors-2 text-end text-2x1 my-1 py-1 ' %>
+        <%= f.label :愛用ラケット %>
+				<%= f.text_field :racket, class: "w-full border-x-gray-500 border-y-gray-500" %>
+			</div>
+
+      <div class="grid grid-cols-2 gap-3 text-end text-2xl my-1 py-1">
+        <%= f.label :テニス歴 %>
+				<%= f.text_field :history, class: "w-full border-x-gray-500 border-y-gray-500" %>
+			</div>
+        <%= f.label :プレースタイル %>
+				<%= f.text_field :play_style, class: "w-full border-x-gray-500 border-y-gray-500" %>
+				<%= f.label :レベル %>
+				<%= f.text_field :level, class: "w-full border-x-gray-500 border-y-gray-500" %>
+				<%= f.label :年代 %>
+				<%= f.text_field :generation, class: "w-full border-x-gray-500 border-y-gray-500" %>
+				<%= f.label :性別 %>
+				<%= f.text_field :gender, class: "w-full border-x-gray-500 border-y-gray-500" %>
+				<%= f.label :その他 %>
+				<%= f.text_field :body, class: "w-full border-x-gray-500 border-y-gray-500" %>
+      </div>
+    </div>
+	<% end %>
