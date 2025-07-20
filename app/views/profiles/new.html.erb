@@ -22,11 +22,11 @@
 			</div>
 			<div class="grid grid-colors-2 gap-3 text-end text-2x1 my-1 py-1">
 				<%= f.label :年代 %>
-				<%= f.text_field :generation, class: "w-full border-x-gray-500 border-y-gray-500" %>
+				<%= f.select :generations, Profile.generations.keys.map { |k| [t("enums.profile.generation.#{k}"), k] } ,{ include_blank: "" },class: "w-full border-x-gray-500 border-y-gray-500" %>
 			</div>
 			<div class="grid grid-colors-2 gap-3 text-end text-2xl my-1 mx-1" >
 				<%= f.label :性別 %>
-				<%= f.text_field :gender, class: "w-full border-x-gray-500 border-y-gray-500" %>
+				<%= f.select :genders, Profile.genders.keys.map { |k| [t("enums.profile.gender.#{k}"), k] } ,{ include_blank: "" } ,class: "w-full border-x-gray-500 border-y-gray-500" %>
       </div>
       <div class="grid gird-colors-2 gap-3 tex-end text-2xl my-1 mx-1">
 				<%= f.label :自己紹介%>
