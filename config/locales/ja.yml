@@ -1,0 +1,16 @@
+ja:
+  enums:
+    profile:
+      generation:
+        under_10: 10歳未満
+        teens: 10代
+        twenties: 20代
+        thirties: 30代
+        forties: 40代
+        fifties: 50代
+        sixties: 60代
+        over_70: 70代
+      gender:
+        male: 男性
+        female: 女性
+        other: その他

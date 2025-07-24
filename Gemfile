@@ -79,3 +79,6 @@ gem "active_storage_validations"
 
 #i18nの導入
 gem 'rails-i18n', '~>7.0.0'
+
+# enumの日本語化
+gem 'enum_help'

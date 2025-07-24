@@ -1,0 +1,45 @@
+<!-- 以下のページタイトルはヘッダー部分に利用する必要がある -->
+<h1 class="text-5xl font-semibold text-center">プロフィール編集画面</h1>
+ 
+ <!-- 動的に名前を表示させる `use.name`等を実装必要　-->
+  <%= form_with model: @profile, class: 'new-profile' do |f| %>
+    <div class = "text2x-l flex justify-center ">
+
+      <div class="grid grid-cols-2 gap-3 text-end text-2x1 my-1 py-1">
+        <%= f.label :愛用ラケット %>
+				<%= f.text_field :racket, class: "w-full border-x-gray-500 border-y-gray-500" %>
+			</div>
+
+      <div class="grid grid-cols-2 gap-3 text-end text-2xl my-1 py-1">
+        <%= f.label :テニス歴 %>
+				<%= f.text_field :history, class: "w-full border-x-gray-500 border-y-gray-500" %>
+			</div>
+
+      <div class="grid grid-cols-2 gap-3 text-end text-2xl my-1 py-1">
+        <%= f.label :プレースタイル %>
+				<%= f.text_field :play_style, class: "w-full border-x-gray-500 border-y-gray-500" %>
+      </div>
+
+      <div class="grid grid-cols-2 gap-3 text-end text-2x1 my-1 py-1">
+				<%= f.label :レベル %>
+				<%= f.text_field :level, class: "w-full border-x-gray-500 border-y-gray-500" %>
+			</div>
+
+			<div class="grid grid-cols-2 gap-3 text-end text-2x1 my-1 py-1">
+				<%= f.label :年代 %>
+				<%= f.select :generations, Profile.generations.keys.map { |k| [t("enums.profile.generation.#{k}"), k] } ,{ include_blank: "" },class: "w-full border-x-gray-500 border-y-gray-500" %>
+			</div>
+
+			<div class="grid grid-cols-2 gap-3 text-end text-2xl my-1 mx-1" >
+				<%= f.label :性別 %>
+				<%= f.select :genders, Profile.genders.keys.map { |k| [t("enums.profile.gender.#{k}"), k] } ,{ include_blank: "" } ,class: "w-full border-x-gray-500 border-y-gray-500" %>
+      </div>
+
+      <div class="grid gird-cols-2 gap-3 tex-end text-2xl my-1 mx-1">
+				<%= f.label :自己紹介%>
+				<%= f.text_field :body, class: "w-full border-x-gray-500 border-y-gray-500" %>
+      </div>
+
+    </div>
+
+	<% end %>
