@@ -1,0 +1,35 @@
+<h1 class="text-7xl font-semibold text-center py-1 ">詳細画面</h1>
+  <div  class="text-2xl text-navy flex justify-center" >
+    <div>
+		  
+	    <div class="my-5" >
+        <label>愛用ラケット:</label>
+        <%= @profile.racket_model %>
+      </div>
+  <div class= "my-5">
+    <label>テニス歴:</label>
+    <%= @profile.history %>
+  </div>
+  <div class="my-5" >
+    <label>プレースタイル:</label>
+    <%= @profile.play_style %>
+  </div>
+  <div class="my-5" >
+    <label>レベル:</label>
+    <%= @profile.level %>
+  </div>
+  <div class="my-5" >
+    <label>年代:</label>
+    <%= @profile.generation %>
+  </div>
+  <div class="my-5" >
+    <label>性別:</label>
+    <%= @profile.gender %>
+  </div>
+  <div class="my-5" >
+    <label>自己紹介:</label>
+    <%= @profile.body %>
+  </div>
+	</div>
+</div>
+
