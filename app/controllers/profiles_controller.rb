@@ -17,8 +17,22 @@ class ProfilesController < ApplicationController
 		@profile = Profile.find(params[:id])
   end
 
+  def update
+		@profile = current_user.profile
+		if @profile.update(profile_params)
+			redirect_to profile_path(@profile), success: "プロフィール情報の更新に成功しました"
+		else
+      flash.now[:danger] = "ラケットの投稿に失敗しました"
+			render :new, status: :unprocessable_entity
+		end
+  end
+
+  def edit
+		@profile = current_user.profile
+  end
+
   private
   def profile_params
-	  params.require(:profile).permit(:racket_model, :history, :play_style, :level, :gender, :body)
+	  params.require(:profile).permit(:racket_model, :history, :play_style, :level, :generation, :gender, :body)
   end
 end
