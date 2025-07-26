@@ -4,9 +4,9 @@ class ProfilesController < ApplicationController
 	end
 
   def create
-	  @profile = current_user.profiles.build(profile_params)
+	  @profile = current_user.build_profile(profile_params)
 	  if @profile.save
-		  redirect_to profile_path
+		  redirect_to profiles_path
 	  else
       flash.now[:danger] = "プロフィール作成に失敗しました"
       render :new, status: :unprocessable_entity
