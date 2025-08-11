@@ -54,7 +54,7 @@ Style/BlockDelimiters:
   Exclude:
     - 'spec/**/*_spec.rb'
 
-Style/ClassAndMOduleChildren:
+Style/ClassAndModuleChildren:
   Enabled: false
 
 Style/Documentation:
