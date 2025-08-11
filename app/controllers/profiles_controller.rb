@@ -22,7 +22,7 @@ class ProfilesController < ApplicationController
 		if @profile.update(profile_params)
 			redirect_to profile_path(@profile), success: "プロフィール情報の更新に成功しました"
 		else
-      flash.now[:danger] = "ラケットの投稿に失敗しました"
+      flash.now[:danger] = "プロフィールの投稿に失敗しました"
 			render :new, status: :unprocessable_entity
 		end
   end
