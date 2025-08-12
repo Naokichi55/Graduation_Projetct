@@ -14,4 +14,10 @@ ja:
       failure: ラケットの投稿に失敗しました
     destroy:
       success: 投稿したラケット情報を削除しました
-
+  profiles:
+    create:
+      success: プロフィールの作成に成功しました
+      failure: プロフィールの作成に失敗しました
+    update:
+      success: プロフィール情報の更新に成功しました
+      failure: プロフィール情報の更新に失敗しました
