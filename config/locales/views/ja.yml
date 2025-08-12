@@ -5,6 +5,10 @@ ja:
     logout: ログアウト
     new_user: 新規登録
     rackets_index: ラケット投稿一覧
+  defaults:
+    flash_message:
+      created: ラケットの投稿に成功しました
+      not_created:  ラケットの投稿に失敗しました
   rackets:
     create:
       success: ラケットの投稿に成功しました
