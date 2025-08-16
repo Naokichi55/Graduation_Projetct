@@ -18,7 +18,7 @@ class ProfilesController < ApplicationController
   end
 
   def update
-		@profile = current_user.profile
+		@profile = Profile.find(params[:id])
 		if @profile.update(profile_params)
 			redirect_to profile_path(@profile), success: t('profiles.update.success')
 		else
@@ -28,7 +28,7 @@ class ProfilesController < ApplicationController
   end
 
   def edit
-		@profile = current_user.profile
+		@profile = Profile.find(params[:id])
   end
 
   private
