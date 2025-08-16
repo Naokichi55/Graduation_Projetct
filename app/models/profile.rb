@@ -14,4 +14,6 @@ class Profile < ApplicationRecord
 
   enum  gender: { male: 1, female: 2, other: 3 }
 
+  has_one_attached :icon
+
 end

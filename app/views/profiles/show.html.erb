@@ -1,6 +1,9 @@
 <h1 class="text-7xl font-semibold text-center py-1 ">詳細画面</h1>
   <div  class="text-2xl text-navy flex justify-center" >
     <div>
+      <div class="my-5" >
+        <%= image_tag @profile.icon.variant(resize_to_fill: [ 300,300 ]), class: "rounded-full w-60, h-60" %>
+			</div>
 		  <div class="my-5" >
         <label>プレイヤーネーム:</label>
         <%= current_user.name %>

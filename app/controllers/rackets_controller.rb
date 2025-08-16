@@ -13,9 +13,9 @@ class RacketsController < ApplicationController
   def create
     @racket = current_user.rackets.build(racket_params)
     if @racket.save
-      redirect_to rackets_path, success: "ラケットの投稿に成功しました"
+      redirect_to rackets_path, success: t('rackets.create.success')
     else
-      flash.now[:danger] = "ラケットの投稿に失敗しました"
+      flash.now[:danger] = t('rackets.create.failure')
       render :new, status: :unprocessable_entity
     end
   end
@@ -32,9 +32,9 @@ class RacketsController < ApplicationController
   def update
     @racket = Racket.find(params[:id])
     if @racket.update(racket_params)
-      redirect_to racket_path(@racket), success: "ラケット情報の更新に成功しました"
+      redirect_to racket_path(@racket), success: t('rackets.update.success')
     else
-      flash.now[:danger] = " ラケットの投稿に失敗しました"
+      flash.now[:danger] = t('rackets.update.failure')
       render :new, status: :unprocessable_entity
     end
   end
@@ -48,7 +48,7 @@ class RacketsController < ApplicationController
   def destroy
     racket = current_user.rackets.find(params[:id])
     racket.destroy!
-    redirect_to rackets_path, success: "投稿したラケット情報を削除しました。"
+    redirect_to rackets_path, success: t('rackets.update.success')
   end
 
 

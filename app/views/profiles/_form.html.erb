@@ -1,6 +1,11 @@
  <!-- 動的に名前を表示させる `use.name`等を実装必要　-->
   <%= form_with model: @profile, class: 'new-profile' do |f| %>
 
+       <div class="grid grid-cols-2 gap-3 text-end text-2xl my-3 py-3">
+        <%= f.label :プロフィール画像 %>
+				<%= f.file_field :icon, class: "w-full border-x-gray-500 border-y-gray-500" %>
+			</div>
+
       <div class="grid grid-cols-2 gap-3 text-end text-2xl my-3 py-3">
         <%= f.label :愛用ラケット %>
 				<%= f.text_field :racket_model, class: "w-full border-x-gray-500 border-y-gray-500" %>
