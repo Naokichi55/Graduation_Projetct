@@ -12,6 +12,15 @@
             <%= image_tag 'temporary _sample.png', width: 300, height: "200" %>
           <% end %>
         </div>
+        <div>
+          <% if racket.user.profile.present? %>
+            <div class = "underline">
+              <%= link_to racket.user.name, profile_path(racket.user) %>
+            </div>
+          <% else %>
+            <%= racket.user.name %>
+          <% end %>
+        </div>
         <div class = "underline">
           <%= link_to racket.product_name, racket_path(racket) %> <!-- 名前を押すことで詳細画面へ遷移 -->
         </div>
