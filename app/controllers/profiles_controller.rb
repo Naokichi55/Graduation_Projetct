@@ -1,6 +1,6 @@
 class ProfilesController < ApplicationController
   before_action :authenticate_user!, only: %i[edit new show]
-	before_action :new_profile, only: %i[new]
+	before_action :check_profile, only: %i[new]
 
 	def new
 		@profile = Profile.new
@@ -39,7 +39,7 @@ class ProfilesController < ApplicationController
     params.require(:profile).permit(:racket_model, :history, :play_style, :level, :generation, :gender, :body, :icon)
   end
 
-  def new_profile
+  def check_profile
 		if current_user.profile.present?
 			redirect_to rackets_path
 		else
