@@ -101,8 +101,12 @@
         <%= render 'comments/form', comment: @comment, racket:@racket %>
       </div>
     <!-- コメント一覧画面 -->
-      <div>
-        <%= render @comments %>
-      </div>
+    <!-- DOM操作のためにidを設定 -->
+    <div data-racket-id="<%= @racket.id %>">
+        <div id="table-comment">
+          <%= render @comments %>
+        </div>
+      <%= turbo_stream_from "racket_#{@racket.id}_comments" %>
     </div>
-  <% end %>
+  </div>
+<% end %>

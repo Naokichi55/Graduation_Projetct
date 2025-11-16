@@ -1,0 +1,7 @@
+<!-- エラーが発生した際の動作をRUNTEQのテキストの内容を参考にする -->
+<% if @comment.errors.present? %> 
+<!-- id="new_comment"の要素を、ブロックで囲んだ内容と置き換えする -->
+  <%= turbo_stream.replace "comment-form" do %>
+    <%= render partial: 'form', locals: { comment: @comment, racket: @comment.racket } %>
+  <% end %>
+<% end %>
