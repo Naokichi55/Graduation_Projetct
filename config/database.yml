@@ -80,8 +80,10 @@ test:
 # Read https://guides.rubyonrails.org/configuring.html#configuring-a-database
 # for a full overview on how database connection configuration can be specified.
 #
+
 production:
-  <<: *default
-  database: myapp_production
-  username: myapp
-  password: <%= ENV["MYAPP_DATABASE_PASSWORD"] %>
+  primary: &primary_production #solid_cable用のDBは作らず、appのDBを使用する。 solid_cableのreadmeより記載
+    <<: *default
+    database: myapp_production
+    username: myapp
+    password: <%= ENV["MYAPP_DATABASE_PASSWORD"] %>
