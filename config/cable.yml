@@ -9,7 +9,7 @@ test:
   adapter: test
 
 
-# appのDBを使用するためconnects_toを削除。
+# appのDBを使用するため、connects_toを削除
 production:
   adapter: solid_cable
   polling_interval: 0.1.seconds
