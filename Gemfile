@@ -82,3 +82,6 @@ gem 'rails-i18n', '~>7.0.0'
 
 # enumの日本語化
 gem 'enum_help'
+
+# solid_cableの導入
+gem "solid_cable", "~> 3.0"
