@@ -5,8 +5,12 @@ document.addEventListener('DOMContentLoaded', function() {
   const racketElement = document.querySelector('[data-racket-id]');
   const racketId = racketElement?.dataset.racketId;
 
- console.log('Racket I:', racketId);
+//現在のユーザーIDを取得
+const currentUserId = racketElement?.dataset.currentUserId;
+
+ console.log('Racket Id:', racketId);
  console.log('Racket Element:', racketElement);
+ console.log('Current User Id:', currentUserId);
 
 if(racketId) {
   const subscription = consumer.subscriptions.create({
@@ -27,15 +31,51 @@ if(racketId) {
      console.log("Received data:", data); 
      //　リアルタイムでコメントを追加
      //table-commentをracket-idに変更すると投稿がワンクリックで2回コメントが投稿される。
-    const commentsContainer = document.getElementById('table-comment')
-    console.log("Comments container:", commentsContainer);
+    // const commentsContainer = document.getElementById('table-comment'); createアクション内で定義し直すため、コメントアウト。
+    // console.log("Comments container:", commentsContainer);const commentsContainerの定義をコメントアウトしたため、こちらもコメントアウト。
+    //createアクションを受け取った時の動作を追加
+    if (data.action === 'create'){
+      // コメントIDで条件分岐をする際に変数を設定をした方が少なくて済むため変数を追加
+      const tableComment = document.getElementById('table-comment');
 
-    if(commentsContainer && data.comment) {
-      commentsContainer.insertAdjacentHTML('afterbegin', data.comment);
-      console.log("Comment add successfully")
-    }else{
-     console.error("Comments container not found or no comment data");
+      if(tableComment){
+        //HTMLを挿入
+        tableComment.insertAdjacentHTML('afterbegin', data.comment);
+
+        console.log("Comment and successfully") //コメントを追加しました。
+        //挿入したコメントの要素取得
+        const newComment = tableComment.firstElementChild;
+        //投稿後のコメントフォームをクリア
+        const form = document.querySelector('#comment-form form');
+        if(form){
+          form.reset(); //←フォームをクリア
+        }
+        //コメント投稿者のIDを取得し、コメント投稿した人のコメント一覧に追加。
+        const commentUserId = newComment?.dataset.UserId;
+
+        console.log('Comment User Id:', commentUserId);
+        console.log('Current User Id:', currentUserId);
+
+        //投稿者とログインユーザーが異なる場合削除ボタンを非表示に
+        if(commentUserId !== currentUserId){
+          const deleteButton = newComment.querySelector('.delete-button');
+          if(deleteButton){
+            deleteButton.style.display = 'none';
+            console.log = ('Delete button hidden for other user'); //削除ボタンが投稿ユーザー以外で非表示になっているかのデバック用
+          }
+        }
+      }else{
+        console.error("Comments container not found or no comment data");
+      }
     }
+
+    //データの内容、(create,destroy)によって動作を変えるために一旦コメントアウト
+    // if(commentsContainer && data.comment) {
+    //   commentsContainer.insertAdjacentHTML('afterbegin', data.comment);
+    //   console.log("Comment add successfully")
+    // }else{
+    //  console.error("Comments container not found or no comment data");
+    // }
   }
   });
 }else{

@@ -101,12 +101,12 @@
         <%= render 'comments/form', comment: @comment, racket:@racket %>
       </div>
     <!-- コメント一覧画面 -->
-    <!-- DOM操作のためにidを設定 -->
-    <div data-racket-id="<%= @racket.id %>">
+    <!-- DOM操作のためにidを設定  投稿したユーザー以外コメント削除ボタンを非表示にするために、data属性にcurrent_userのIDを追加 -->
+      <div data-racket-id="<%= @racket.id %>" data-current-user-id="<%= current_user.id %>">
         <div id="table-comment">
           <%= render @comments %>
         </div>
-      <%= turbo_stream_from "racket_#{@racket.id}_comments" %>
+      <!-- turboを使わないためコメントアウト <%= turbo_stream_from "racket_#{@racket.id}_comments" %> -->
+      </div>
     </div>
-  </div>
 <% end %>
