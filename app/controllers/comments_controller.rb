@@ -16,22 +16,10 @@ class CommentsController < ApplicationController
           )
         }
       )
-      # turboを使用しないため以下を削除。
-      # respond_to do |format| #リクエストされる処理を分けるメソッド
-      #   format.turbo_stream do #turbo_streamのリクエストが来た際の処理
-      #     render turbo_stream: [
-      #     turbo_stream.prepend("table-comment", partial: "comments/comment", locals: { comment: @comment}),
-      #     turbo_stream.replace("comment-form", partial: "comments/form", locals: { comment: Comment.new, racket: @racket})
-      #       ]
-      #     end
-      #   format.html { redirect_to @racket}
-      # end
+      # コメント投稿機能ではturboを使用しないためturboに関する記述を削除。
     else
-      # エラー時の処理を変更。turboを使用しないため。
+      # コメント投稿機能ではturboを使用しないためエラー時の処理を変更。
       head :unprocessable_entity
-      # respond_to do |format|
-      #   format.turbo_stream do
-      #     render turbo_stream: turbo_stream.replace("comment-form", partial: "comments/form", locals: { comment: @comment, racket: @racket })
     end
   end
 
