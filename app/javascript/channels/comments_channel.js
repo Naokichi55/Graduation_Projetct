@@ -74,7 +74,7 @@ if(racketId) {
       const commentElement = document.getElementById(`comment-${data.comment_id}`)
       if(commentElement){
         commentElement.remove();
-        console.log(`Coment ${data.comment_id} removed`)
+        console.log(`Comment ${data.comment_id} removed`)
       }else{
         console.error(`Comment ${data.comment_id} nota found`)
       }
@@ -100,7 +100,7 @@ document.addEventListener('click', function(e){
   if(e.target.classList.contains('delete-button')){
     e.preventDefault();
 
-    const confirmMessage = e.target.database.confirm;
+    const confirmMessage = e.target.dataset.confirm;
     if(!confirm(confirmMessage)){
       return;
     }
