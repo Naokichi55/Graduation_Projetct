@@ -39,8 +39,8 @@ class CommentsController < ApplicationController
      head :ok
     else
     head :unprocessable_entity
+    end
   end
-
   private
 
   def comment_params
