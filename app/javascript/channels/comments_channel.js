@@ -1,6 +1,6 @@
 import consumer from "./consumer"
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function(){
   //constにて変数を定義
   const racketElement = document.querySelector('[data-racket-id]');
   const racketId = racketElement?.dataset.racketId;
@@ -69,6 +69,16 @@ if(racketId) {
       }
     }
 
+    //削除ボタンを押下時の動作を追加。
+    if(data.action === 'destroy'){
+      const commentElement = document.getElementById(`comment-${data.comment_id}`)
+      if(commentElement){
+        commentElement.remove();
+        console.log(`Coment ${data.comment_id} removed`)
+      }else{
+        console.error(`Comment ${data.comment_id} nota found`)
+      }
+    }
     //データの内容、(create,destroy)によって動作を変えるために一旦コメントアウト
     // if(commentsContainer && data.comment) {
     //   commentsContainer.insertAdjacentHTML('afterbegin', data.comment);
@@ -78,8 +88,42 @@ if(racketId) {
     // }
   }
   });
-}else{
-  console.log("No racket ID found, skipping WebSocket connection");
-  }
+}
+
+//コメントアウト（削除ボタンのイベント処理（イベント譲渡)を記載するため）
+// else{
+//   console.log("No racket ID found, skipping WebSocket connection");
+//   }
     //チャネルのWebSocketで受信データがあるときに呼び出される
+//削除ボタンのイベント処理（イベント譲渡)
+document.addEventListener('click', function(e){
+  if(e.target.classList.contains('delete-button')){
+    e.preventDefault();
+
+    const confirmMessage = e.target.database.confirm;
+    if(!confirm(confirmMessage)){
+      return;
+    }
+    const url = e.target.href;
+    //fetchでDELETEリクエスト
+    fetch(url,{
+      method: 'DELETE',
+      headers:{
+        'X-CSRF-Token': document.querySelector('[name="csrf-token"]').content,
+        'Accept': 'application/json'
+      }
+    })
+    .then(response =>{
+      if(!response.ok){
+        alert('削除に失敗しました!');
+      }
+    })
+    .catch(error => {
+    console.error('Error:',error);
+    alert('エラーが発生しました');
+    });
+
+
+  }
+});
 });
