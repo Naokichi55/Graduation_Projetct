@@ -28,9 +28,9 @@ class CommentsController < ApplicationController
     racket_id = @comment.racket_id
 
     if @comment.destroy
-     Rails.logger.info "Broadcasting destroy for comment #{@comment.id} on racket #{racket.id}"
+     Rails.logger.info "Broadcasting destroy for comment #{@comment.id} on racket #{racket_id}"
      CommentsChannel.broadcast_to(
-      "racket_#{racket.id}_comments",
+      "racket_#{racket_id}_comments",
       {
         action: 'destroy',
         comment_id: @comment.id
