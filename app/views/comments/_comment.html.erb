@@ -13,7 +13,13 @@
         <!-- 編集機能は本リリース時に実装" -->
 			  <div class="text-end">
 				  <!-- コメント削除ができないようにlink_toを変更 -->
-			    <%= link_to"削除", comment_path(comment), class: "text-white bg-red rounded-md pt-2 pb-1 pl-2 pr-1" ,data: { turbo: false, comment_id: comment.id, confirm: '削除しますか？' } %> <!-- `turbo_method: :delete, turbo_confirm: '削除しますか?`をturboを無効化する内容に変更" comment_idを定義 -->
+					<!-- js側で条件分岐できるように`delete-button`を追記 -->
+			    <%= link_to"削除", 
+					    comment_path(comment), 
+							class: "delete-button text-white bg-red rounded-md pt-2 pb-1 pl-2 pr-1" ,
+							data: { turbo: false, 
+							        comment_id: comment.id,
+											confirm: '削除しますか？' } %> <!-- `turbo_method: :delete, turbo_confirm: '削除しますか?`をturboを無効化する内容に変更" comment_idを定義 -->
 		    </div>
 	    <% end %>
 	  </div>
