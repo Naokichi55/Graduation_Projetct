@@ -1,7 +1,7 @@
 class Profile < ApplicationRecord
   belongs_to :user
 
-  enum generation: {
+  enum :generation, {
     under_10: 0,
     teens: 1,
     twenties: 2,
@@ -12,7 +12,7 @@ class Profile < ApplicationRecord
     over_70: 7,
   }
 
-  enum  gender: { male: 1, female: 2, other: 3 }
+  enum  :gender, { male: 1, female: 2, other: 3 }
 
   has_one_attached :icon
 

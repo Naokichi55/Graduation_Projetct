@@ -42,8 +42,6 @@ class ProfilesController < ApplicationController
   def check_profile
 		if current_user.profile.present?
 			redirect_to rackets_path
-		else
-      render :new
     end
   end
 
