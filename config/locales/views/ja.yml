@@ -25,6 +25,12 @@ ja:
     destroy:
       success: 投稿したラケット情報を削除しました
   profiles:
+    new:
+      title: プロフィール投稿
+    show:
+      title: プロフィール画面
+    edit:
+      title: プロフィール編集
     create:
       success: プロフィールの作成に成功しました。
       failure: プロフィールの作成に失敗しました。
