@@ -1,9 +1,10 @@
-<header class= 'py-8 bg-green text-yellow'>
-  <div class= 'container mx-auto flex justify-between items-center w-full'>
+<header class= 'h-20  bg-green text-yellow' >
+  <div class= 'container mx-auto flex justify-between items-center w-full h-full'>
     <div class='space-x-8'>
       <%= link_to 'TOP画面へ', root_path %>
       <%= link_to '投稿一覧画面へ', rackets_path %>
     </div>
+    <h1 class="text-4xl font-semibold text-center items-center" ><%= page_heading(yield(:title)) %></h1>
     <div class = 'space-x-12'>
       <% if user_signed_in? %>
         <%= link_to '投稿画面へ', new_racket_path %>
