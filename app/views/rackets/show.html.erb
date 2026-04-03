@@ -13,7 +13,7 @@
 
       <div class= "my-2">
       <label>更新日:</label>
-	    <%= @racket.created_at %>
+	    <%= @racket.created_at.strftime('%y-%m-%m %H:%M') %>
       </div>
 
       <div class= "my-2 brek-all max-w-md">

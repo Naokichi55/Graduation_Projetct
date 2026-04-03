@@ -28,7 +28,7 @@
           <%= racket.maker_name %>
         </div>
         <div>
-          <%= racket.created_at %>
+          <%= racket.created_at.strftime('%y/%m/%d') %>
 			  </div>
         <div>
           <% if user_signed_in? %> <!-- ユーザーがログインしているか確認 -->
