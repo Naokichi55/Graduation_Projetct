@@ -1,8 +1,8 @@
 <% content_for(:title, t('.title')) %>
-  <div class="mx-24 grid grid-cols-3 gap-8">
+  <div class="mx-24 my-1 grid grid-cols-2 gap-8">
     <% if @rackets.present? %>
       <% @rackets.each do |racket| %>
-      <div class= "grid" >
+      <div class= "grid border border-colors-black" >
         <div>
           <% if racket.images.attached? %>
             <% racket.images.each do |image| %>
@@ -15,7 +15,7 @@
         <div>
           <% if racket.user.profile.present? %>
             <div class = "underline">
-              <%= link_to racket.user.name, profile_path(racket.user) %>
+              <%= link_to racket.user.name, profile_path(racket.user.profile) %>
             </div>
           <% else %>
             <%= racket.user.name %>
