@@ -16,6 +16,8 @@ ja:
       title: みんらけ
     show:
       title: 詳細画面
+    edit:
+     title: 編集画面
     create:
       success: ラケットの投稿に成功しました
       failure: ラケットの投稿に失敗しました
