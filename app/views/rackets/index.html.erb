@@ -1,9 +1,8 @@
 <% content_for(:title, t('.title')) %>
-  <div class="mx-24 my-1 grid grid-cols-2 gap-8">
+  <div class="mx-24 my-1 x-10 grid grid-cols-2 gap-8">
     <% if @rackets.present? %>
       <% @rackets.each do |racket| %>
       <div class= "grid border border-colors-black" >
-        <div>
           <% if racket.images.attached? %>
             <% racket.images.each do |image| %>
               <%= image_tag image.variant(resize_to_fit: [300, 200]) %>
@@ -11,34 +10,43 @@
           <% else %>
             <%= image_tag 'temporary _sample.png', width: 300, height: "200" %>
           <% end %>
+          <div class='grid grid-cols-3 grid-rows-2'>
+              <% if racket.user.profile.present? %>
+                <div class="underline">
+                  <%= link_to racket.user.name, profile_path(racket.user.profile) %>
+                </div>
+              <% else %>
+                <div>
+                  <%= racket.user.name %>
+                </div>
+              <% end %>
+              <div class='underline'>
+                <%= link_to racket.product_name, racket_path(racket), data: { turbo: false } %> <!-- 名前を押すことで詳細画面へ遷移 詳細画面のコメントチャット機能にてturboを使用しないためturboをoff-->
+              </div>
+              <div>
+                 <% if user_signed_in? %>
+                  <% if current_user.own?(racket) %>
+                  <div>
+                    <%= link_to '編集', edit_racket_path(racket) %>
+                  </div>
+                  <% end %>
+                <% end %>
+              </div>
+              <div>
+                <%= racket.created_at.strftime('%y/%m/%d') %>
+              </div>
+              <div>
+                <%= racket.maker_name %>
+              </div>
+              <div>
+                <% if user_signed_in? %> <!-- レイアウトを整えるために、編集、削除でわけて記載 -->
+                  <% if current_user.own?(racket) %>
+                    <%= link_to '削除', racket_path(racket), data: { turbo_method: :delete, turbo_confirm: '削除しますか?'} %>
+                  <% end %>
+                <% end %>
+              </div>
+          </div>
         </div>
-        <div>
-          <% if racket.user.profile.present? %>
-            <div class = "underline">
-              <%= link_to racket.user.name, profile_path(racket.user.profile) %>
-            </div>
-          <% else %>
-            <%= racket.user.name %>
-          <% end %>
-        </div>
-        <div class = "underline">
-          <%= link_to racket.product_name, racket_path(racket), data: { turbo: false } %> <!-- 名前を押すことで詳細画面へ遷移 詳細画面のコメントチャット機能にてturboを使用しないためturboをoff-->
-        </div>
-        <div>
-          <%= racket.maker_name %>
-        </div>
-        <div>
-          <%= racket.created_at.strftime('%y/%m/%d') %>
-			  </div>
-        <div>
-          <% if user_signed_in? %> <!-- ユーザーがログインしているか確認 -->
-            <% if current_user.own?(racket) %> <!-- 投稿ユーザーがログインユーザー確認 -->
-              <%= link_to '編集', edit_racket_path(racket) %>
-              <%= link_to '削除', racket_path(racket), data: { turbo_method: :delete, turbo_confirm: '削除しますか?'} %>
-            <% end %>
-          <% end %>
-        </div>
-      </div>
       <% end %>
 	  <% else %>
       <p> 投稿がありません </p>
