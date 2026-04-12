@@ -3,7 +3,7 @@
     <div class="max-w-sm  md:max-w-4xl mx-auto  my-1 grid grid-cols-1  md:grid-cols-2 gap-8 ">
       <% if @rackets.present? %>
         <% @rackets.each do |racket| %>
-        <div class= "grid border border-gray " >
+        <div class= "grid border border-gray" >
             <% if racket.images.attached? %>
               <% racket.images.each do |image| %>
                 <%= image_tag image.variant(resize_to_fit: [300, 200]), class:'mx-auto' %>
@@ -13,31 +13,31 @@
             <% end %>
             <div class='grid grid-cols-3 grid-rows-2'>
                 <% if racket.user.profile.present? %>
-                  <div class="underline">
+                  <div class="underline text-right truncate">
                     <%= link_to racket.user.name, profile_path(racket.user.profile) %>
                   </div>
                 <% else %>
-                  <div>
+                  <div class='text-center truncate'>
                     <%= racket.user.name %>
                   </div>
                 <% end %>
-                <div class='underline'>
+                <div class='px-1 underline text-center truncate'>
                   <%= link_to racket.product_name, racket_path(racket), data: { turbo: false } %> <!-- 名前を押すことで詳細画面へ遷移 詳細画面のコメントチャット機能にてturboを使用しないためturboをoff-->
                 </div>
-                <div>
+                <div class='py-1 pl-2 text-left'>
                   <% if user_signed_in? %>
                     <% if current_user.own?(racket) %>
                       <%= link_to '編集', edit_racket_path(racket) , class: " text-white bg-blue px-1 py-1 rounded-md items-right " %>
                     <% end %>
                   <% end %>
                 </div>
-                <div>
-                  <%= racket.created_at.strftime('%y/%m/%d') %>
+                <div class='text-right mr-1'>
+                  <%= racket.created_at.strftime('%y/%m/%d %H:%M') %>
                 </div>
-                <div>
+                <div class='px-1 text-center truncate'>
                   <%= racket.maker_name %>
                 </div>
-                <div>
+                <div class='py-1 pl-2 text-left '>
                   <% if user_signed_in? %> <!-- レイアウトを整えるために、編集、削除でわけて記載 -->
                     <% if current_user.own?(racket) %>
                       <%= link_to '削除', racket_path(racket), class: "text-white bg-red px-1 py-1 rounded-md " ,data: { turbo_method: :delete, turbo_confirm: '削除しますか?'} %>
