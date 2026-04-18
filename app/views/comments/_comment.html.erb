@@ -1,20 +1,26 @@
 <!-- data-user-id属性を追加して、コメント投稿のIDを埋め込む -->
 <div id="comment-<%= comment.id %>" data-user-id="<%= comment.user_id %>">
   <!-- 本リリース時にuserのアイコンを表示できるように実装 -->
-  <div class="flex <%= current_user.own?(comment) ? 'justify-end' : '' %>"><!-- 三項演算子を使用。`true`の時`flex-row-reverse`が必要な可能性あり -->
+  <div class="flex <%= current_user.own?(comment) ? 'justify-end ' : '' %>"><!-- 三項演算子を使用。`true`の時`flex-row-reverse`が必要な可能性あり -->
 	  <!--div class="bg-orange-700  text-white my-2 rounded-md "-->
    		  <!-- LINE風のチャット欄にするためログインユーザーのコメントは右側に表示される -->
       <div>
-				  <div>
+				  <div class='mb-2'>
+					<% # if comment.user.profile&.icon.present? %>
 					  <%= image_tag comment.user.profile.icon.variant(resize_to_fill: [30,30]), class: "rounded-full w-30 h-30" %>
+					<% #else %>
+					  <%# = image_tag 'sample_profile.jpg', width: 30, height: 20, class: 'mx-auto' %>
+					<%# end %>
 					</div>
-					<div >
+					<div class='mb-2 text-xs'>
 				    <%= comment.user.name %>
 				  </div>
-					
+				<div>
+				<div>
 				  <div class="max-w-80 rounded-md  p-3 break-words mb-2 relative <%= current_user.own?(comment) ? 'bg-green text-navy mr-1' : 'bg-orange-700 text-white ml-1 ' %>">
 				    <%= simple_format(comment.body) %>
-            <div class="w-0 h-0 border-t-8  border-t-transparent border-b-8 border-b-transparent border-r-8 border-r-orange-700 absolute top-1/2 -translate-y-1/2 -left-2" >
+            <div class="w-0 h-0 absolute border-l-8  border-l-transparent border-r-8 border-r-transparent border-t-8 border-t-transparent <%= current_user.own?(comment) ? 'border-b-8 border-b-green -top-4 right-1' : 'border-b-8 border-b-orange-700 -top-4 left-1'%>" >
+              <!-- 吹き出しにつけるために三角形を作成 -->
 					  </div>						<!-- 編集機能は本リリース時に実装" -->
             <!-- js側で条件分岐できるように`delete-button`を追記 -->
 				  <% if current_user.own?(comment) %>
@@ -25,7 +31,8 @@
 												comment_id: comment.id,
 												confirm: '削除しますか？' } %> <!-- `turbo_method: :delete, turbo_confirm: '削除しますか?`をturboを無効化する内容に変更" comment_idを定義 -->
             <% end %>
-			   </div>
+				</div>
+			</div>  
 		</div>
 	</div>
 </div>
