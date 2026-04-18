@@ -6,11 +6,11 @@
    		  <!-- LINE風のチャット欄にするためログインユーザーのコメントは右側に表示される -->
       <div>
 				  <div class='mb-2'>
-					<% # if comment.user.profile&.icon.present? %>
+					<% if comment.user.profile&.icon.present? %>
 					  <%= image_tag comment.user.profile.icon.variant(resize_to_fill: [30,30]), class: "rounded-full w-30 h-30" %>
-					<% #else %>
-					  <%# = image_tag 'sample_profile.jpg', width: 30, height: 20, class: 'mx-auto' %>
-					<%# end %>
+					<% else %>
+					  <%= image_tag 'sample_profile.jpg', width: 30, height: 20, class: 'mx-auto' %>
+					<% end %>
 					</div>
 					<div class='mb-2 text-xs'>
 				    <%= comment.user.name %>
