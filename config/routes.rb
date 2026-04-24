@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   # コメント機能のルーティングを設定
     resources :comments, only: %i[create edit destroy], shallow:true
+  # いいね機能のルーティング
+    resources :likes, only: %i[create destroy]
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
