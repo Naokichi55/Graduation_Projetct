@@ -1,6 +1,6 @@
 <% content_for(:title, t('.title')) %>
 
-    <div class="max-w-sm  md:max-w-4xl mx-auto  my-1 grid grid-cols-1  md:grid-cols-2 gap-8 ">
+    <div class="text-navy max-w-sm  md:max-w-4xl mx-auto  my-1 grid grid-cols-1  md:grid-cols-2 gap-8 ">
       <% if @rackets.present? %>
         <% @rackets.each do |racket| %>
         <div class= "grid border border-gray" >
@@ -24,16 +24,22 @@
                 <div class='px-1 underline text-center truncate'>
                   <%= link_to racket.product_name, racket_path(racket), data: { turbo: false } %> <!-- 名前を押すことで詳細画面へ遷移 詳細画面のコメントチャット機能にてturboを使用しないためturboをoff-->
                 </div>
-                <div class='py-1 pl-2 text-left'>
+                <div class='py-1 pl-2 text-left flex'>
+                  <div>
                   <% if user_signed_in? %>
                     <% if current_user.own?(racket) %>
                       <%= link_to '編集', edit_racket_path(racket) , class: " text-white bg-blue px-1 py-1 rounded-md items-right " %>
                     <% end %>
                   <% end %>
+                  </div>
+                  <!--いいね機能を実装 -->
+                  <div id="racket_<%= racket.id %>_like" class='pl-5'>
+                    <%= render "rackets/like", racket: racket %> 
+                  </div>
                 </div>
-                <div class='text-right mr-1'>
-                  <%= racket.created_at.strftime('%y/%m/%d %H:%M') %>
-                </div>
+                  <div class='text-right mr-1'>
+                    <%= racket.created_at.strftime('%y/%m/%d %H:%M') %>
+                  </div>
                 <div class='px-1 text-center truncate'>
                   <%= racket.maker_name %>
                 </div>

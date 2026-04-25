@@ -7,6 +7,8 @@ class User < ApplicationRecord
   has_many :rackets, dependent: :destroy
   # commentテーブルとのアソシエーションを記載
   has_many :comments, dependent: :destroy
+  # likeテーブルとのアソシエーションを記載
+  has_many :likes, dependent: :destroy
 
   #profileテーブルとのアソシエーションを記載
   has_one :profile, dependent: :destroy
