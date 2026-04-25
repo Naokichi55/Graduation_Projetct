@@ -7,6 +7,9 @@ class Racket < ApplicationRecord
   has_many :comments, dependent: :destroy
   # likeテーブルtのアソシエーション
   has_many :likes, dependent: :destroy
+  def like_by?(user) #ユーザーがいいねしている確認するメソッドを作成
+    likes.exists?(user_id: user.id)
+  end
 
   # ラケット投稿機能のバリデーション
   validates :product_name, presence: true, length: { maximum: 255 }

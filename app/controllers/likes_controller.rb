@@ -1,7 +1,7 @@
 class LikesController < ApplicationController
  def create 
-	@link = current_user.likes,build(racket_id: params[:racket_id])
-	@likes.save
+	@like = current_user.likes.build(racket_id: params[:racket_id])
+	@like.save
 	redirect_back(fallback_location: root_path)
  end
 

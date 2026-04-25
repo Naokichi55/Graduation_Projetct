@@ -9,9 +9,6 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   # likeテーブルとのアソシエーションを記載
   has_many :likes, dependent: :destroy
-    def like_by?(user) #ユーザーがいいねしている確認するメソッドを作成
-      likes.exit?(user_id: user.id)
-    end
 
   #profileテーブルとのアソシエーションを記載
   has_one :profile, dependent: :destroy
