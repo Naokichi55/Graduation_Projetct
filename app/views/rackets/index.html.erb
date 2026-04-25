@@ -12,6 +12,9 @@
               <%= image_tag 'temporary _sample.png', width: 300, height: 200, class: 'mx-auto' %>
             <% end %>
             <div class='grid grid-cols-3 grid-rows-2'>
+                  <div id="racket_<%= racket.id %>_like" %>
+                    <%= render "rackets/like", racket: racket %>
+                  </div>
                 <% if racket.user.profile.present? %>
                   <div class="underline text-right truncate">
                     <%= link_to racket.user.name, profile_path(racket.user.profile) %>
