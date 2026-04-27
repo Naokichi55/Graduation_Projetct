@@ -18,12 +18,12 @@ if(racketId) {
   racket_id: racketId
  }, {
   connected() {
-    console.log("Connected to comments channel for racket")
+    console.log("Connected to comments channel for racket");
     // サブスクリプションがサーバー上で使用可能になったときに呼び出される。
   },
 //接続が切断された時の処理。デバッグとし記録。
   disconnected() {
-    console.log("Disconnected from comments channel")
+    console.log("Disconnected from comments channel");
     // サブスクリプションがサーバー上で終了した時に呼び出される。
   },
 //データを受け取った時の処理について記載。
@@ -51,7 +51,7 @@ if(racketId) {
           form.reset(); //←フォームをクリア
         }
         //コメント投稿者のIDを取得し、コメント投稿した人のコメント一覧に追加。
-        const commentUserId = newComment?.dataset.UserId;
+        const commentUserId = newComment?.dataset.userId;
 
         console.log('Comment User Id:', commentUserId);
         console.log('Current User Id:', currentUserId);
@@ -61,7 +61,7 @@ if(racketId) {
           const deleteButton = newComment.querySelector('.delete-button');
           if(deleteButton){
             deleteButton.style.display = 'none';
-            console.log = ('Delete button hidden for other user'); //削除ボタンが投稿ユーザー以外で非表示になっているかのデバック用
+            console.log('Delete button hidden for other user'); //削除ボタンが投稿ユーザー以外で非表示になっているかのデバック用
           }
         }
       }else{
@@ -74,9 +74,9 @@ if(racketId) {
       const commentElement = document.getElementById(`comment-${data.comment_id}`)
       if(commentElement){
         commentElement.remove();
-        console.log(`Comment ${data.comment_id} removed`)
+        console.log(`Comment ${data.comment_id} removed`);
       }else{
-        console.error(`Comment ${data.comment_id} nota found`)
+        console.error(`Comment ${data.comment_id} nota found`);
       }
     }
     //データの内容、(create,destroy)によって動作を変えるために一旦コメントアウト

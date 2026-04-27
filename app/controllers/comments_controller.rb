@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
           action: 'create', #削除機能を実装するため、どのアクションか明示する必要がある。
           comment: render_to_string(
           partial: 'comments/comment',
-          locals: { comment: @comment }
+          locals: { comment: @comment, current_user: current_user }
           )
         }
       )
