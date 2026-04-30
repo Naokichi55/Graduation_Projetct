@@ -6,14 +6,24 @@ class CommentsController < ApplicationController
 
 #commentの内容が保存された時の動作
     if @comment.save
-      CommentsChannel.broadcast_to(
+      icon_url = if @comment.user.profile&.icon.present? # アイコンのURLを取得(見え方をユーザーによって切り替えるため)
+        Rails.application.routes.url_helpers.rails_blob_path(
+          @comment.user.profile.icon.variant(resize_to_fill: [30, 30]),
+          only_path: true
+        )
+      else
+        ActionController::Base.helpers.asset_path('sample_profile.jpg')
+      end
+
+        CommentsChannel.broadcast_to(
         "racket_#{@racket.id}_comments",
         {
           action: 'create', #削除機能を実装するため、どのアクションか明示する必要がある。
-          comment: render_to_string(
-          partial: 'comments/comment',
-          locals: { comment: @comment, current_user: current_user }
-          )
+          comment_id: @comment.id,
+          user_id: @comment.user_id,
+          user_name: @comment.user.name,
+          body: @comment.body,
+          icon_url: icon_url
         }
       )
       # コメント投稿機能ではturboを使用しないためturboに関する記述を削除。

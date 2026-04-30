@@ -39,8 +39,37 @@ if(racketId) {
       const tableComment = document.getElementById('table-comment');
 
       if(tableComment){
+      //ログインユーザーのコメントかどうかを判定
+      const isOwnComment = String(data.user_id) === String(currentUserId);
+      //HTMLを組み立てる
+      const commentHTML = `
+        <div id="comment-${data.comment_id}" data-user-id="${data.user_id}">
+          <div class="flex ${isOwnComment ? 'justify-end' : ' '}">
+            <div>
+              <div class='flex items-center ${isOwnComment ? "flex-row-reverse mr-1" : "ml-1" }'>
+                <div class='mb-2'>
+                  <img src="${data.icon_url}" class="rounded-full w-30 h-30" width="30" height="30">
+                </div>
+              <div class='text-xs mx-1 mb-3'>
+                ${data.user_name}
+              </div>
+            </div>
+              <div class="max-w-80 rounded-md p-3 break-words mb-2 relative ${isOwnComment ? 'bg-green text-navy mr-1' : 'bg-orange-700 text-white ml-1'}">
+              ${data.body.replace(/\n/g, '<br>')}
+              <div class="w-0 h-0 absolute border-l-8 border-l-transparent border-r-8 border-r-transparent border-t-8 border-t-transparent ${isOwnComment ? 'border-b-8 border-b-green -top-4 right-1' : 'border-b-8 border-b-orange-700 -top-4 left-1'}">
+              </div>
+              ${isOwnComment ? `
+                <div class='text-right mt-1'>
+                  <a href="/comments/${data.comment_id}" class="delete-button text-s text-right text-white bg-red rounded-md py-1 px-1 text-right" data-turbo="false" data-comment-id="${data.comment_id}" data-confirm="削除しますか？">削除</a>
+                </div>
+                `: '' }
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
         //HTMLを挿入
-        tableComment.insertAdjacentHTML('afterbegin', data.comment);
+        tableComment.insertAdjacentHTML('afterbegin', commentHTML);
 
         console.log("Comment and successfully") //コメントを追加しました。
         //挿入したコメントの要素取得
@@ -50,25 +79,8 @@ if(racketId) {
         if(form){
           form.reset(); //←フォームをクリア
         }
-        //コメント投稿者のIDを取得し、コメント投稿した人のコメント一覧に追加。
-        const commentUserId = newComment?.dataset.userId;
-
-        console.log('Comment User Id:', commentUserId);
-        console.log('Current User Id:', currentUserId);
-
-        //投稿者とログインユーザーが異なる場合削除ボタンを非表示に
-        if(commentUserId !== currentUserId){
-          const deleteButton = newComment.querySelector('.delete-button');
-          if(deleteButton){
-            deleteButton.style.display = 'none';
-            console.log('Delete button hidden for other user'); //削除ボタンが投稿ユーザー以外で非表示になっているかのデバック用
-          }
-        }
-      }else{
-        console.error("Comments container not found or no comment data");
       }
     }
-
     //削除ボタンを押下時の動作を追加。
     if(data.action === 'destroy'){
       const commentElement = document.getElementById(`comment-${data.comment_id}`)
