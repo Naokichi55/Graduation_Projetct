@@ -10,7 +10,9 @@
       <%= image_tag 'temporary _sample.png', width: "500", height: "400" %>
      <% end %>
       </div>
-
+      <div id="racket_<%= @racket.id %>_like">
+       <%= render "rackets/like",racket: @racket %>
+      </div>
       <div class= "my-2">
       <label>更新日:</label>
 	    <%= @racket.created_at.strftime('%y-%m-%m %H:%M') %>
