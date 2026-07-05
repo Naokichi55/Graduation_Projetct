@@ -34,7 +34,7 @@
                   </div>
                   <!--いいね機能を実装 -->
                   <div id="racket_<%= racket.id %>_like" class='pl-5'>
-                    <%= render "rackets/like", racket: racket %> 
+                    <%= render "rackets/like", racket: racket, button_id: "like-button-#{racket.id}" %>
                   </div>
                 </div>
                   <div class='text-right mr-1'>
