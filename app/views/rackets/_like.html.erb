@@ -1,10 +1,10 @@
-<% button_id = local_assigns[:button_id] || "like-button-#{racket.id}" %>
+<% button_id = local_assigns[:button_id] || "like-button-#{racket_id}" %>
 
 <%= turbo_frame_tag button_id do %>
   <% if user_signed_in? %>
   <div class='md:flex'>
 	  <div>
-    <% if racket.like_by?(current_user) %>
+    <% if racket.like_by?(current_user) %> <!-- like_by?(current_user)でログインしているユーザーいいねしているかの条件分岐 -->
 	    <%= link_to racket_like_path(racket, racket.likes),id: button_id, data: { turbo_method: :delete } do %>
 		    <%= image_tag "heart_fil.svg", class: 'size-5 md:size-6 ml-1' %>
 		  <% end %>
