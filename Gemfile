@@ -85,3 +85,6 @@ gem 'enum_help'
 
 # solid_cableの導入
 gem "solid_cable", "~> 3.0"
+
+#deviseの日本語化対応
+gem "devise-i18n"

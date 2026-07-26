@@ -2,3 +2,10 @@ ja:
   activerecord:
     models:
       user: ユーザー
+    attributes:
+      user:
+        name: プレイヤーネーム
+        email: メールアドレス
+        password: パスワード
+      new:
+        characters minimum: 文字以上
