@@ -1,0 +1,10 @@
+ja:
+  devise:
+    sessions:
+      name: 名前
+      email: メールアドレス
+      password: パスワード
+      remember_me: ログインを維持する
+    registrations:
+      new:
+        minimum_password_length: "%{count}文字以上"
